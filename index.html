@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background 2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            animation: neonGlow 3s infinite;
+        }
+        @keyframes neonGlow {
+            0% { text-shadow: 0 0 5px #00f; }
+            50% { text-shadow: 0 0 20px #00f; }
+            100% { text-shadow: 0 0 5px #00f; }
+        }
+        p {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            background-color: blue;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%);
+            z-index: -1;
+            transition: opacity 2s ease-in-out;
+        }
+        .flower {
+            width: 150px;
+            height: 150px;
+            background-image: url('https://i.imgur.com/OX7EYO8.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: sway 3s infinite alternate ease-in-out;
+            z-index: 1;
+        }
+        @keyframes sway {
+            from { transform: translate(-50%, -50%) rotate(-5deg); }
+            to { transform: translate(-50%, -50%) rotate(5deg); }
+        }
+        .message {
+            color: yellow;
+            font-size: 1.2em;
+            width: 80%;
+            position: absolute;
+            top: 55%;
+            z-index: 0;
+        }
+        .lyrics {
+            position: absolute;
+            bottom: 20px;
+            font-size: 1.2em;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">¡TE QUIERO MUCHO!</h1>
+    <p id="question">Mi morenita hermosa, ¿Te gustaría ser mi SAN VALENTÍN?</p>
+    <button id="acceptBtn">Sí (NO HAY MÁS OPCIONES)</button>
+    <div class="stars hidden"></div>
+    <div class="flower hidden"></div>
+    <p class="message hidden">Ojitos lindos, me siento profundamente afortunado de tenerte a mi lado. Cada día que pasa contigo es un regalo...</p>
+    <p class="lyrics hidden">Letra de la canción...</p>
+    <audio id="song" src="tu_cancion.mp3"></audio>
+
+    <script>
+        document.getElementById('acceptBtn').addEventListener('click', function() {
+            document.body.style.background = 'radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%)';
+            document.getElementById('title').classList.add('hidden');
+            document.getElementById('question').classList.add('hidden');
+            this.classList.add('hidden');
+            document.querySelector('.stars').classList.remove('hidden');
+            document.querySelector('.flower').classList.remove('hidden');
+            document.querySelector('.message').classList.remove('hidden');
+            document.querySelector('.lyrics').classList.remove('hidden');
+            document.getElementById('song').play();
+        });
+    </script>
+</body>
+</html>
