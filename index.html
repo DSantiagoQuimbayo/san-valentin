@@ -58,7 +58,7 @@
         .flower {
             width: 150px;
             height: 150px;
-            background-image: url('https://i.pinimg.com/originals/de/0e/26/de0e267552ae99d49623826ae8b16c0d.jpg');
+            background-image: url('https://i.imgur.com/OX7EYO8.png');
             background-size: contain;
             background-repeat: no-repeat;
             position: absolute;
@@ -96,31 +96,27 @@
 <body>
     <h1 id="title">¡TE QUIERO MUCHO!</h1>
     <p id="question">Mi morenita hermosa, ¿Te gustaría ser mi SAN VALENTÍN?</p>
-    <button id="acceptBtn">Sí chiquita (NO HAY MÁS OPCIONES)</button>
+    <button id="acceptBtn">Sí (NO HAY MÁS OPCIONES)</button>
     <div class="stars hidden"></div>
     <div class="flower hidden"></div>
     <p class="message hidden">Ojitos lindos, me siento profundamente afortunado de tenerte a mi lado. Cada día que pasa contigo es un regalo...</p>
     <p class="lyrics hidden">Letra de la canción...</p>
-<audio id="song" controls loop>
-    <source src="cancion.mp3" type="audio/mpeg">
-</audio>
+    <audio id="song">
+        <source src="cancion.mp3" type="audio/mpeg">
+    </audio>
 
-<script>
-    document.getElementById('acceptBtn').addEventListener('click', function() {
-        document.body.style.background = 'radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%)';
-        document.getElementById('title').classList.add('hidden');
-        document.getElementById('question').classList.add('hidden');
-        this.classList.add('hidden');
-        document.querySelector('.stars').classList.remove('hidden');
-        document.querySelector('.flower').classList.remove('hidden');
-        document.querySelector('.message').classList.remove('hidden');
-        document.querySelector('.lyrics').classList.remove('hidden');
-        
-        // Aseguramos que la canción se reproduce solo al hacer clic en el botón
-        const song = document.getElementById('song');
-        song.play();  // Reproduce la canción
-    });
-</script>
-    
+    <script>
+        document.getElementById('acceptBtn').addEventListener('click', function() {
+            document.body.style.background = 'radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%)';
+            document.getElementById('title').classList.add('hidden');
+            document.getElementById('question').classList.add('hidden');
+            this.classList.add('hidden');
+            document.querySelector('.stars').classList.remove('hidden');
+            document.querySelector('.flower').classList.remove('hidden');
+            document.querySelector('.message').classList.remove('hidden');
+            document.querySelector('.lyrics').classList.remove('hidden');
+            document.getElementById('song').play();
+        });
+    </script>
 </body>
 </html>
