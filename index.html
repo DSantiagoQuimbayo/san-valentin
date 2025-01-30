@@ -101,22 +101,26 @@
     <div class="flower hidden"></div>
     <p class="message hidden">Ojitos lindos, me siento profundamente afortunado de tenerte a mi lado. Cada día que pasa contigo es un regalo...</p>
     <p class="lyrics hidden">Letra de la canción...</p>
-    <audio id="song" autoplay controls loop>
-        <source src="cancion.mp3" type="audio/mpeg">
-    </audio>
+<audio id="song" controls loop>
+    <source src="cancion.mp3" type="audio/mpeg">
+</audio>
 
-    <script>
-        document.getElementById('acceptBtn').addEventListener('click', function() {
-            document.body.style.background = 'radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%)';
-            document.getElementById('title').classList.add('hidden');
-            document.getElementById('question').classList.add('hidden');
-            this.classList.add('hidden');
-            document.querySelector('.stars').classList.remove('hidden');
-            document.querySelector('.flower').classList.remove('hidden');
-            document.querySelector('.message').classList.remove('hidden');
-            document.querySelector('.lyrics').classList.remove('hidden');
-            document.getElementById('song').play();
-        });
-    </script>
+<script>
+    document.getElementById('acceptBtn').addEventListener('click', function() {
+        document.body.style.background = 'radial-gradient(circle, rgba(0,0,255,0.3) 10%, black 90%)';
+        document.getElementById('title').classList.add('hidden');
+        document.getElementById('question').classList.add('hidden');
+        this.classList.add('hidden');
+        document.querySelector('.stars').classList.remove('hidden');
+        document.querySelector('.flower').classList.remove('hidden');
+        document.querySelector('.message').classList.remove('hidden');
+        document.querySelector('.lyrics').classList.remove('hidden');
+        
+        // Aseguramos que la canción se reproduce solo al hacer clic en el botón
+        const song = document.getElementById('song');
+        song.play();  // Reproduce la canción
+    });
+</script>
+    
 </body>
 </html>
